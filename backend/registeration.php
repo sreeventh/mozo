@@ -3,7 +3,7 @@
 $servername = "localhost";
 $username = "root";
 $password = "";
-$dbname = "ngoDB";
+$dbname = "ngodb";
 
 // Create connection
 $conn = new mysqli($servername, $username, $password, $dbname);
@@ -31,7 +31,7 @@ else
     $conn->query($sql);
     $sql0 = "UPDATE active SET user = '$uname' WHERE Now = 'Now'";
     $conn->query($sql0);
-    header("Location: ../indexCopy.html");
+    header("Location: ../index.html");
 }
 
 ?>

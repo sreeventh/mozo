@@ -3,7 +3,7 @@
 $servername = "localhost";
 $username = "root";
 $password = "";
-$dbname = "ngoDB";
+$dbname = "ngodb";
 
 // Create connection
 $conn = new mysqli($servername, $username, $password, $dbname);
