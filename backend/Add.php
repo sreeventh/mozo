@@ -1,4 +1,5 @@
 <?php
+session_start();
 
 $servername = "localhost";
 $username = "root";
@@ -7,28 +8,51 @@ $dbname = "ngodb";
 
 // Create connection
 $conn = new mysqli($servername, $username, $password, $dbname);
+
 // Check connection
 if ($conn->connect_error) {
-  die("Connection failed: " . $conn->connect_error);
+    die("Connection failed: " . $conn->connect_error);
 }
 
+try {
+    $conn->begin_transaction();
 
-$sql = "SELECT * from tempbook";
-$result = $conn->query($sql);
+    $sqlSelect = "SELECT * FROM tempbook";
+    $result = $conn->query($sqlSelect);
 
-while($row = $result->fetch_assoc()) {
-    $pnr = $row["pnr"];
-    $coach = $row["coachnum"];
-    $station = $row["station"];
-    $age = $row["agecategory"];
-    $gender = $row["gender"];
-    $name = $row["name"];
-    $luggage = $row["noluggage"];
-    $sql = "delete from tempbook where pnr = $pnr";
-    $conn->query($sql);
+    $cname = $_SESSION['username'];
 
-    $sql = "insert into bookingtable values($pnr, '$coach', '$station', '$age', '$gender', '$luggage','$name');";
-    $conn->query($sql);
- }
- header("Location: ../greeting.html");
+    while ($row = $result->fetch_assoc()) {
+        $pnr = $row["pnr"];
+        $coach = $row["coachnum"];
+        $station = $row["station"];
+        $age = $row["agecategory"];
+        $gender = $row["gender"];
+        $name = $row["name"];
+        $luggage = $row["noluggage"];
+
+        // INSERT into bookingtable
+        $sqlInsert = "INSERT INTO bookingtable (pnr, coachnum, station, agecategory, gender, noluggage, name) VALUES ('$pnr', '$coach', '$station', '$age', '$gender', '$luggage', '$name')";
+        if ($conn->query($sqlInsert) !== TRUE) {
+            throw new Exception("Error in INSERT query: " . $conn->error);
+        }
+
+        // DELETE from tempbook
+        $sqlDelete = "DELETE FROM tempbook WHERE pnr = '$pnr'";
+        if ($conn->query($sqlDelete) !== TRUE) {
+            throw new Exception("Error in DELETE query: " . $conn->error);
+        }
+    }
+
+    $conn->commit();
+    echo '<script language="javascript">';
+    echo 'alert("Booking Confirmed")';
+    header("Location: ../greeting.html");
+    echo '</script>';
+} catch (Exception $e) {
+    $conn->rollback();
+    echo "Error: " . $e->getMessage();
+}
+
+$conn->close();
 ?>

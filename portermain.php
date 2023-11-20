@@ -1,3 +1,7 @@
+<?php
+session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
    <head>
@@ -86,7 +90,7 @@
                                  <div class="collapse navbar-collapse" id="navbarsExample04">
                                     <ul class="navbar-nav mr-auto">
                                        <li class="nav-item active">
-                                          <a class="nav-link" href="portermain.html">Home</a>
+                                          <a class="nav-link" href="index.html">Home</a>
                                        </li>
                                        <li class="nav-item">
                                           <a class="nav-link" href="porterdash.html">Profile</a>
@@ -109,7 +113,7 @@
          <!-- end header -->
         
          <?php
-                           
+
          $servername = "localhost";
          $username = "root";
          $password = "";

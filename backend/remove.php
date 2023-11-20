@@ -1,5 +1,7 @@
 <?php
 
+session_start();
+
 $servername = "localhost";
 $username = "root";
 $password = "";
@@ -15,6 +17,7 @@ if ($conn->connect_error) {
 
 $sql = "SELECT * from tempbook";
 $result = $conn->query($sql);
+$cname = $_SESSION['username'];
 
 while($row = $result->fetch_assoc()) {
     $pnr = $row["pnr"];
@@ -27,5 +30,5 @@ while($row = $result->fetch_assoc()) {
     $conn->query($sql);
 
  }
- header("Location: ../greeting.html");
+ header("Location: ../portermain.php");
 ?>

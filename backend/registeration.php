@@ -7,31 +7,41 @@ $dbname = "ngodb";
 
 // Create connection
 $conn = new mysqli($servername, $username, $password, $dbname);
+
 // Check connection
 if ($conn->connect_error) {
-  die("Connection failed: " . $conn->connect_error);
+    die("Connection failed: " . $conn->connect_error);
 }
 
+// Get user input
 $uname = $_POST["Username"];
 $email = $_POST["Email"];
 $pass = $_POST["Password"];
 $rpass = $_POST["Pass"];
 $num = 0;
 
-if($pass != $rpass)
-{
+// Check if passwords match
+if ($pass != $rpass) {
     echo '<script>window.alert("Password mismatch!")</script>';
     header("Location: ../registration.html");
-    
-}
-else
-{
+} else {
+    // Use prepared statements to prevent SQL injection
+    $stmt = $conn->prepare("INSERT INTO login (uname, email, pass, active) VALUES (?, ?, ?, ?)");
+    $stmt->bind_param("sssi", $uname, $email, $pass, $num);
+    $stmt->execute();
+    $stmt->close();
 
-    $sql = "INSERT INTO login (uname, email , pass , active) VALUES ('$uname' , '$email' , '$pass' , '$num')";
-    $conn->query($sql);
-    $sql0 = "UPDATE active SET user = '$uname' WHERE Now = 'Now'";
-    $conn->query($sql0);
+    // Update the 'active' table
+    $stmt0 = $conn->prepare("UPDATE active SET user = ? WHERE Now = 'Now'");
+    $stmt0->bind_param("s", $uname);
+    $stmt0->execute();
+    $stmt0->close();
+
+    // Redirect to the index page
     header("Location: ../index.html");
 }
+
+// Close the database connection
+$conn->close();
 
 ?>

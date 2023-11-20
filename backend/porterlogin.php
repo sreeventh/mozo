@@ -17,13 +17,13 @@ $uname = $_POST["Name"];
 $pass = $_POST["Password"];
 
 
-$sql = "SELECT * FROM porterlogin WHERE name = '$uname'";
+$sql = "SELECT * FROM ngologin WHERE name = '$uname'";
 $result = $conn->query($sql);
 
 if ($result->num_rows > 0) {
   
   while($row = $result->fetch_assoc()) {
-    if($row["passcode"]==$pass && $row["uname"]==$uname)
+    if($row["password"]==$pass && $row["uname"]==$uname)
     {
         header("Location: ../portermain.php"); 
     }

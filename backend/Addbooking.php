@@ -1,5 +1,7 @@
 <?php
 
+session_start();
+
 $servername = "localhost";
 $username = "root";
 $password = "";
@@ -18,11 +20,13 @@ $station = $_POST["station"];
 $agecat = $_POST["agecat"];
 $gender= $_POST["gender"];
 $luggage = $_POST["luggage"];
+$nname = $_SESSION['username'];
+
 
 
 
 $sql = "INSERT INTO tempbook(pnr, coachnum, station, agecategory, gender, noluggage, name) 
-VALUES('$pnr', '$coach', '$station', '$agecat', '$gender', '$luggage', 'Laasya');";
+VALUES('$pnr', '$coach', '$station', '$agecat', '$gender', '$luggage', '$nname');";
 $conn->query($sql);
 
 echo '<script language="javascript">';

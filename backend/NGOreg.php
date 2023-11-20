@@ -29,7 +29,7 @@ else
 
     $sql = "INSERT INTO ngologin ( uname,name, password ) VALUES ('$name' , '$uname' , '$pass')";
     $conn->query($sql);
-    header("Location: ../NGOPorterlogin.hmtl");
+    header("Location: ../NGOPorterlogin.html");
 }
 
 ?>
