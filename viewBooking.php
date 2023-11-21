@@ -49,7 +49,7 @@
                               <div class="full">
                                  <div class="center-desk">
                                     <div class="logo">
-                                       <a href="index.html">EZHaulers</a>
+                                       <a href="index.php">EZHaulers</a>
                                     </div>
                                  </div>
                               </div>
@@ -62,7 +62,7 @@
                                  <div class="collapse navbar-collapse" id="navbarsExample04">
                                     <ul class="navbar-nav mr-auto">
                                        <li class="nav-item ">
-                                          <a class="nav-link" href="index.html">Dashboard</a>
+                                          <a class="nav-link" href="index.php">Dashboard</a>
                                        </li>
                                     </ul>
                                  </div>
