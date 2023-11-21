@@ -154,32 +154,7 @@ session_start();
 
          }
 
-         ?> 
-        <!-- <div class="onee">
-            <div>
-                <h1>Kumar</h1> 
-                <p>C1, 495740</p>
-            </div>
-            <div class="twoo">
-                <button>ACCEPT</button>
-                <button id="fun">DENY</button>
-            </div>
-        </div>  
-        <div class="onee">
-            <div>
-                <h1>Kumar</h1> 
-                <p>C1, 495740</p>
-            </div>
-            <div class="twoo">
-                <button>ACCEPT</button>
-                <button id="fun">DENY</button>
-            </div>
-        </div>   -->
-        <!-- <div class="twoo">
-                <a href="backend/Add.php"><button>ACCEPT</button></a>
-                
-                <a href="backend/remove.php"><button id="fun" >DENY</button></a>
-         </div> -->
+         ?>
       <!-- Javascript files-->
       <script src="js/jquery.min.js"></script>
       <script src="js/bootstrap.bundle.min.js"></script>

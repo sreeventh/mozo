@@ -19,8 +19,8 @@ if ($conn->connect_error) {
 print_r($_POST);
 
 // Assuming the form fields are named "name", "un", "Password", and "Pass"
-$name = isset($_POST["Name"]) ? $_POST["Name"] : "";
-$uname = isset($_POST["name"]) ? $_POST["name"] : "";
+$name = isset($_POST["name"]) ? $_POST["name"] : "";
+$uname = isset($_POST["un"]) ? $_POST["un"] : "";
 $pass = isset($_POST["Password"]) ? $_POST["Password"] : "";
 $rpass = isset($_POST["Pass"]) ? $_POST["Pass"] : "";
 
