@@ -140,7 +140,18 @@ $isUserLoggedIn = isset($_SESSION['username']) && !empty($_SESSION['username']);
                               <div class="build_box">
                                  <h1>Too much luggage to carry</h1>
                                  <!-- <p>Don't Worry we have Got you Covered<br>Book your porter now </p> -->
-                                 <a class="read_more conatct_btn" href="booking.html" role="button">Start Booking</a>
+                                 <?php if ($isUserLoggedIn): ?>
+                                    <a class="read_more conatct_btn" href="booking.html">
+                                       Start Booking
+                                    </a>
+                                 <?php else: ?>
+                                    <span class="read_more conatct_btn" onclick="showLogin()">Start Booking</span>
+                                 <?php endif; ?>
+                                 <script>
+                                    function showLogin() {
+                                       alert("Please log in to start booking.");
+                                    }
+                                 </script>
                               </div>
                            </div>
                         </div>
@@ -157,7 +168,18 @@ $isUserLoggedIn = isset($_SESSION['username']) && !empty($_SESSION['username']);
                                  <h1>Take it easy<br>All the porters are verified</h1>
                                  <!-- <h1>We Provide Support to the Needy</h1>
                                     <p>We enable donors to search for a non-profit organisation that most closely align with their interests and aids NGOSs<br> We offer several toolkits to assist NGOs in better connecting with and comprehending their current and potential supporters</p> -->
-                                 <a class="read_more conatct_btn" href="booking.html" role="button">Start Booking</a>
+                                 <?php if ($isUserLoggedIn): ?>
+                                    <a class="read_more conatct_btn" href="booking.html">
+                                       Start Booking
+                                    </a>
+                                 <?php else: ?>
+                                    <span class="read_more conatct_btn" onclick="showLogin()">Start Booking</span>
+                                 <?php endif; ?>
+                                 <script>
+                                    function showLogin() {
+                                       alert("Please log in to start booking.");
+                                    }
+                                 </script>
                               </div>
                            </div>
                         </div>
@@ -171,14 +193,13 @@ $isUserLoggedIn = isset($_SESSION['username']) && !empty($_SESSION['username']);
                            <div class="col-md-9">
                               <div class="build_box">
                                  <h1>Don't wait book your porter now<br>Book your porter now </h1>
-
                                  <!-- <p>We enable donors to search for a non-profit organisation that most closely align with their interests and aids NGOSs<br> We offer several toolkits to assist NGOs in better connecting with and comprehending their current and potential supporters</p> -->
                                  <?php if ($isUserLoggedIn): ?>
                                     <a class="read_more conatct_btn" href="booking.html">
                                        Start Booking
                                     </a>
                                  <?php else: ?>
-                                    <span onclick="showLogin()">Start Booking</span>
+                                    <span class="read_more conatct_btn" onclick="showLogin()">Start Booking</span>
                                  <?php endif; ?>
                                  <script>
                                     function showLogin() {
