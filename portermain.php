@@ -77,7 +77,7 @@ session_start();
                               <div class="full">
                                  <div class="center-desk">
                                     <div class="logo">
-                                       <a href="index.html">MOZO</a>
+                                       <a href="index.php">MOZO</a>
                                     </div>
                                  </div>
                               </div>
