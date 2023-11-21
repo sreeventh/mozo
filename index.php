@@ -108,7 +108,7 @@ $isUserLoggedIn = isset($_SESSION['username']) && !empty($_SESSION['username']);
                                        <?php if ($isUserLoggedIn): ?>
                                           <a class="nav-link" href="backend/logout.php">LogOut</a>
                                        <?php else: ?>
-                                          <a class="nav-link" href="NGOlogin">Log In</a>
+                                          <a class="nav-link" href="NGOlogin.html">Log In</a>
                                        <?php endif; ?>
                                     </li>
                                  </ul>
