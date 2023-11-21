@@ -62,7 +62,7 @@ session_start();
                      </div>
                      <div class="col-md-3">
                         <ul class="contat_infoma text_align_right">
-                           <li><a href="Javascript:void(0)"> <i class="fa fa-phone" aria-hidden="true"></i> mozosupport@gmail.com</a></li>
+                           <li><a href="Javascript:void(0)"> <i class="fa fa-phone" aria-hidden="true"></i> EZHaulerssupport@gmail.com</a></li>
                         </ul>
                      </div>
                   </div>
@@ -77,7 +77,7 @@ session_start();
                               <div class="full">
                                  <div class="center-desk">
                                     <div class="logo">
-                                       <a href="index.php">MOZO</a>
+                                       <a href="index.php">EZHaulers</a>
                                     </div>
                                  </div>
                               </div>
