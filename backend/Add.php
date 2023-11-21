@@ -32,7 +32,7 @@ try {
         $luggage = $row["noluggage"];
 
         // INSERT into bookingtable
-        $sqlInsert = "INSERT INTO bookingtable (pnr, coachnum, station, agecategory, gender, noluggage, name) VALUES ('$pnr', '$coach', '$station', '$age', '$gender', '$luggage', '$name')";
+        $sqlInsert = "INSERT INTO bookingtable (pnr, coachnum, station, agecategory, gender, noluggage, name,status) VALUES ('$pnr', '$coach', '$station', '$age', '$gender', '$luggage', '$name',0)";
         if ($conn->query($sqlInsert) !== TRUE) {
             throw new Exception("Error in INSERT query: " . $conn->error);
         }

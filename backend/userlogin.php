@@ -37,7 +37,7 @@ if ($result->num_rows > 0) {
     if ($pass == $row["password"]) {
         // Set the user's name in the session variable
         $_SESSION['username'] = $row["name"];
-        header("Location: ../index.html");
+        header("Location: ../index.php");
     } else {
         echo '<script>window.alert("Invalid Password")</script>';
         header("Location: ../NGOlogin.html");

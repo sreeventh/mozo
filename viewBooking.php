@@ -49,7 +49,7 @@
                               <div class="full">
                                  <div class="center-desk">
                                     <div class="logo">
-                                       <a href="indexCopy.html">MOZO</a>
+                                       <a href="index.html">EZHaulers</a>
                                     </div>
                                  </div>
                               </div>
@@ -62,7 +62,7 @@
                                  <div class="collapse navbar-collapse" id="navbarsExample04">
                                     <ul class="navbar-nav mr-auto">
                                        <li class="nav-item ">
-                                          <a class="nav-link" href="indexCopy.html">Dashboard</a>
+                                          <a class="nav-link" href="index.html">Dashboard</a>
                                        </li>
                                     </ul>
                                  </div>
@@ -154,6 +154,7 @@
             <div class="row">
                <div class="container">
                   <div class="mytitle">
+                     <!-- confirmed booking -->
                      <h2 style="color:green;">Confirmed Booking</h2>
                   </div>
                   <div class="table-responsive">
@@ -164,6 +165,7 @@
                            <th scope="col">Coach Number</th>
                            <th scope="col">Station</th>
                            <th scope="col">No. Luggage</th>
+                           <th scope="col">Status</th>
                         </tr>
                      </thead>
                      <tbody>
@@ -189,12 +191,19 @@
                               $name = $row["coachnum"];
                               $iscargo = $row["station"];
                               $ftype = $row["noluggage"];
+                              $stat = $row["status"];
+                              if($stat==0){
+                                 $ss="en route";
+                              }else{
+                                 $ss= "service completed";
+                              }
                             //   $seatid = $row["seatid"];
                               echo "<tr>";
                               echo "<td class=\"noBorder\">$fcode</td>";
                               echo "<td class=\"noBorder\">$name</td>";
                               echo "<td class=\"noBorder\">$iscargo</td>";
                               echo "<td class=\"noBorder\">$ftype</td>";
+                              echo "<td class=\"noBorder\">$ss</td>";
                             //   echo "<td class=\"noBorder\">$seatid</td>";
                               echo "</tr>";
                            }
